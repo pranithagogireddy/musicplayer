@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="shortcut icon" href="images/fav-icon.png"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="stylelines.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+| I <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="music-player">
+            <nav>
+                <div class="circle">
+                    <i class="material-icons">expand_more</i>
+                </div>
+                <div class="circle">
+                    <i class="material-icons">more_horiz</i>
+                </div>
+            </nav>
+            <div class="img">
+                <img src="song/music-1.jpeg" alt="img">
+            </div>
+            <div class="song">
+                <p class="name">Chogada-Love Yatri</p>
+                <p class="artist">chogada</p>
+            </div>
+            <audio id="song">
+                <source src="song/music-1.mp3">
+            </audio>
+            <input type="range" value="0" id="progress">
+            <div class="controls" type="button">
+                <div><i class="material-icons">skip_previous</i></div>
+                <div onclick="playpause()"><i id="ctrlIcon" class="material-icons">play_arrow</i></div>
+                <div><i class="material-icons">skip_next</i></div> 
+            </div>
+        </div>
+    </div>
+    <script>
+        let progress = document.getElementById("progress");
+        let song = document.getElementById("song");
+        let ctrlIcon = document.getElementById("ctrlIcon");
+
+        song.onloadedmetadata = function(){
+            progress.max = song.duration;
+            progress.value = song.currentTime;
+        }
+        function playpause(){
+            if(ctrlIcon.classList.contains("pause")){
+                song.play();
+                ctrlIcon.classList.add("pause");
+                ctrlIcon.classList.remove("play_arrow");
+            }
+            else{
+                song.pause();
+                ctrlIcon.classList.remove("pause");
+                ctrlIcon.classList.add("play_arrow");
+            }
+        }
+
+        if(song.play()){
+            setInterval(()=>{
+                progress.value = song.currentTime;
+            },500);
+        }
+
+        progress.onchange =function(){
+            song.play();
+            song.currentTime = progress.value;
+            ctrlIcon.classList.add("pause");
+            ctrlIcon.classList.remove("play_arrow");
+        }
+    </script>
+</body>
+</html>

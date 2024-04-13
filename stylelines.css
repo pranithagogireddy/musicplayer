@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    background: #eeeded;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; 
+    margin-top: 30px;
+}
+.music-player{
+    background: #ffffff;
+    width: 400px;
+    padding: 25px 35px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.15);
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+nav .circle{
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    line-height: 40px;
+    color: #515c6f;
+}
+.img{
+    height: 300px;
+    width: 100%;
+    margin-top: 45px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+.img img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.song{
+    text-align: center;
+    margin: 10px 0px;
+    margin: 30px 0px;
+    color: #515c6f;
+}
+.song .name{
+    font-size: 21px;
+}
+.song .artist{
+    opacity: 0.9;
+    font-size: 18px;
+}
+#progress{
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(#ff74a4 0%,#9f6ea3 100%);;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 40px 0;
+}
+#progress::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background: #9f6ea3;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 8px solid #fff;
+    box-shadow: 0 5px 5px rgba(255, 26, 26, 0.22);
+}
+.controls{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.controls div{
+    width: 60px;
+    height: 60px;
+    margin: 20px;
+    background: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #9f6ea3;
+    box-shadow: 0 110px 20px rgba(255, 26, 26, 0.22);
+    cursor: pointer;
+}
+.controls div:nth-child(2){
+    transform: scale(1);
+    background: #f53192;
+    color: #fff;
+}
